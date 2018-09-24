@@ -21,6 +21,7 @@ set after under parent: https://stackoverflow.com/questions/3032856/
 body {
   font-family: 'Actor', sans-serif;
   margin: 2em;
+  font-size: 18px;
 }
 
 header {
@@ -34,61 +35,75 @@ header {
 h1 {
   font-family: 'Abril Fatface', monospace;
   font-style: italic;
+}
 
-  /* for stylized outline */
+/* TODO make this a class, also figure out a way to programatically update content */
+
+.spiky-header {
   position: relative;
   z-index: 1;
 }
 
-/* TODO make this a class, also figure out a way to programatically update content */
 .spiky-header:after {
-  -webkit-text-stroke: 10px var(--white-color);
-  content: 'rediscover your published gh-pages';
+  -webkit-text-stroke: 15px var(--white-color);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
+header h1:after {
+  content: 'rediscover your published gh-pages';
+}
+
+button .spiky-header:after {
+  content: 'go!';
+  -webkit-text-stroke-color: var(--theme-color);
+}
+
 .bold {
   font-weight: bold;
 }
 
-p {
-  max-width: 600px;
-}
-
 form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: cyan;
-  display: inline-block;
   width: 100%;
   max-width: 340px;
-  border-radius: 3px;
+  margin: 120px auto;
+  text-align: center;
 }
 
 input {
   display: block;
+  background-color: var(--theme-color);
+  height: 70px;
   margin-bottom: 10px;
   padding: 5px;
   width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
+  border: none;
+  outline: none;
+
+
+  font-size: 24px;
+  text-align: center;
 }
 
 button {
   font-size: 16px;
-  border-radius: 3px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
   cursor: pointer;
+  position: relative;
+  color: white;
+  outline: none;
+}
+
+button h1 {
+  margin: 0;
 }
 
 button:hover {
-  background-color: yellow;
+  color: black;
 }
 
 button:active {
@@ -100,7 +115,10 @@ li {
 }
 
 footer {
+  font-size: 16px;
   margin-top: 50px;
   padding-top: 25px;
+  width: 60%;
+  min-width: 300px;
   border-top: 1px solid lightgrey;
 }
