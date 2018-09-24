@@ -75,6 +75,7 @@ class Project {
     const link = document.createElement('a');
     link.href = this.url;
     link.innerText = this.url;
+    link.setAttribute('title', `Visit ${this.name}`);
     
     this.ele.appendChild(link);
   }

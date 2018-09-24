@@ -71,6 +71,11 @@ form {
   text-align: center;
 }
 
+label {
+  margin-bottom: 20px;
+  display: block;
+}
+
 input {
   display: block;
   background-color: var(--theme-color);
