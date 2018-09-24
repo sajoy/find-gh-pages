@@ -9,7 +9,7 @@ set after under parent: https://stackoverflow.com/questions/3032856/
 */
 
 :root {
-  --theme-color: #5BFFC4;
+  --theme-color: #FFF;
   --black-color: #000;
   --white-color: #FFF;
 }
@@ -30,6 +30,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
+  transition: background-color 1s;
 }
 
 h1 {
@@ -69,6 +71,11 @@ form {
   text-align: center;
 }
 
+label {
+  margin-bottom: 20px;
+  display: block;
+}
+
 input {
   display: block;
   background-color: var(--theme-color);
@@ -78,10 +85,17 @@ input {
   width: 100%;
   border: none;
   outline: none;
+  transition: background-color 1s;  
 
 
   font-size: 24px;
   text-align: center;
+  font-weight: bold;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: var(--black-color);
 }
 
 button {
