@@ -38,6 +38,7 @@ class Project {
     const title = document.createElement('h1');
     title.innerText = this.name;
     title.classList.add('spiky-header');
+    title.setAttribute('data-content', this.name);
     
     this.ele.appendChild(title);
   }

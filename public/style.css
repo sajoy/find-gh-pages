@@ -46,23 +46,15 @@ h1 {
 
 .spiky-header:after {
   -webkit-text-stroke: 15px var(--white-color);
+  content: attr(data-content);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
-header h1:after {
-  content: 'rediscover your published gh-pages';
-}
-
-button .spiky-header:after {
-  content: 'go!';
-  -webkit-text-stroke-color: var(--theme-color);
-}
-
+button .spiky-header:after,
 ul .spiky-header:after {
-  content: 'about-me';
   -webkit-text-stroke-color: var(--theme-color);
 }
 
