@@ -30,7 +30,19 @@ searchForm.addEventListener('submit', function (e) {
     })
     .then(function(projects) {
       pages.innerText = '';
-      projects.forEach(function(project) {new Project(project);});
+
+      if (projects.length) {
+        projects.forEach(function(project) {new Project(project);});
+      } else {
+        const emptyProject =  {
+          name: 'null',
+          url: '',
+          description: `${username} hasn't published any repos to gh-pages!`
+        };
+
+        new Project(emptyProject);
+      }
+      
     });
 });
 
