@@ -1,3 +1,23 @@
+Array.prototype.getRandomItem = function () {
+  const randomIndex = Math.floor(Math.random() * this.length);
+  return this[randomIndex];
+}
+
+setRandomTheme();
+
+function setRandomTheme() {
+  const colors = [
+    '#EC0B43', // red
+    '#3772FF', // blue
+    '#A600FF', // purple
+    '#A2D729', // green
+    '#E365C1', // pink
+  ];
+
+  const root = document.querySelector('body');
+  root.style.setProperty('--theme-color', colors.getRandomItem());
+}
+
 const pages = document.querySelector('#pages');
 
 const searchForm = document.querySelector('#search');
