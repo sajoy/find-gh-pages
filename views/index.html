@@ -1,0 +1,60 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>your gh-pages</title>
+    <meta name="description" content="Rediscover which GitHub repositories you've published on gh-pages.">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>rediscover your published gh-pages</h1>
+    </header>
+
+    <main>
+      <form id="search">
+        <p>Enter a GitHub username:</p>
+        <input name="user" type="text" maxlength="100" placeholder="octocat" aria-labelledby="submit-user" required>
+        <button type="submit">Let's go!</button>
+      </form>
+      
+      <section>
+        <ul id="pages"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        I wanted to clean up my GitHub account (still do!), and I couldn't remember which repos I'd published to gh-pages.
+        So I made this lil' thing to ping GitHub's API and ask. I hope it helps you rediscover some of your own old favorite projects!
+      </p>
+      <p>
+        FYI - it only goes through 100 repos right now.
+      </p>
+      Made with &hearts; by  <a href="http://twitter.com/superissarah">SJ</a>, hosted on <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
