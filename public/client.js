@@ -12,8 +12,6 @@ searchForm.addEventListener('submit', function (e) {
       pages.innerText = '';
       projects.forEach(function(project) {new Project(project);});
     });
-  
-  this.user.value = '';
 });
 
 class Project {
@@ -39,6 +37,7 @@ class Project {
   createTitle () {
     const title = document.createElement('h1');
     title.innerText = this.name;
+    title.classList.add('spiky-header');
     
     this.ele.appendChild(title);
   }

@@ -61,6 +61,11 @@ button .spiky-header:after {
   -webkit-text-stroke-color: var(--theme-color);
 }
 
+ul .spiky-header:after {
+  content: 'about-me';
+  -webkit-text-stroke-color: var(--theme-color);
+}
+
 .bold {
   font-weight: bold;
 }
@@ -110,10 +115,46 @@ button:active {
   box-shadow: none;
 }
 
-li {
-  margin-bottom: 5px;
+
+/* pages listing */
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
 }
 
+li {
+  margin-bottom: 5px;
+  list-style: none;
+  flex-grow: 1;
+  border: 10px solid var(--theme-color);
+  margin: 10px;
+  padding: 20px;
+  word-break: break-all;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li p {
+  margin-top: 0;
+}
+
+li h1.spiky-header {
+  position: absolute;
+  z-index: 1;
+  top: -50px;
+  left: 0;
+  color: white;
+}
+
+
+
+
+/* footer */
 footer {
   font-size: 16px;
   margin-top: 50px;
