@@ -17,7 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- import the webpage's stylesheet -->
+    <!-- import fonts and the webpage's stylesheet -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Actor" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's client-side javascript file -->
@@ -25,14 +26,14 @@
   </head>
   <body>
     <header>
-      <h1>rediscover your published gh-pages</h1>
+      <h1 class="spiky-header" data-content="rediscover your published gh-pages">rediscover your <br/>published gh-pages</h1>
     </header>
 
     <main>
       <form id="search">
-        <p>Enter a GitHub username:</p>
-        <input name="user" type="text" maxlength="100" placeholder="octocat" aria-labelledby="submit-user" required>
-        <button type="submit">Let's go!</button>
+        <p>enter your github username:</p>
+        <input name="user" type="text" maxlength="100" placeholder="octocat" aria-labelledby="submit-user" required autocomplete="off">
+        <button type="submit"><h1 class="spiky-header" data-content="go!">go!</h1></button>
       </form>
       
       <section>
