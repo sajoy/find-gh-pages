@@ -68,10 +68,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 
-/* animated shapes container */
+/* animated shapes */
 
 #shapes {
   border: 1px solid gray;
@@ -79,7 +80,39 @@ main {
   width: 300px;
   position: absolute;
   z-index: -1;
+
+  --small-height: 20px;
+  --large-height: 36px;
+  --triangle-side-height: 12px;
+  --triangle-bottom-height: 20px;
 }
+
+.shape {
+  /* position: absolute; */
+  height: var(--small-height);
+  width: var(--small-height);
+  background-color: var(--theme-color);
+}
+
+.shape.large {
+  height: var(--large-height);
+  width: var(--large-height);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.triangle {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+
+  border-left: transparent var(--triangle-side-height) solid;
+  border-right: transparent var(--triangle-side-height) solid;
+  border-bottom: var(--theme-color) var(--triangle-bottom-height) solid;
+}
+
 
 
 /* form */
@@ -87,7 +120,7 @@ main {
 form {
   width: 100%;
   max-width: 340px;
-  margin: 100px auto;
+  margin: 120px auto;
   text-align: center;
 }
 
