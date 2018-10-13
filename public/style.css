@@ -76,7 +76,8 @@ main {
 
 #shapes {
   border: 1px solid gray;
-  height: 400px;
+  margin-top: -50px;
+  height: 450px;
   width: 300px;
   position: absolute;
   z-index: -1;
@@ -88,6 +89,7 @@ main {
 }
 
 .shape {
+  display: inline-block;
   /* position: absolute; */
   height: var(--small-height);
   width: var(--small-height);

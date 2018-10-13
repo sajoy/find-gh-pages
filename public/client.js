@@ -3,7 +3,41 @@ Array.prototype.getRandomItem = function () {
   return this[randomIndex];
 }
 
+class Shapes {
+  constructor () {
+    // build a timeline of entire thing and pause and play as it progresses
+    this.timeline = anime.timeline({autoplay: false});
+    this.timeline.add({
+      targets: '#shapes .circle',
+      translateY: 100,
+      translateX: 80
+    })
+    .add({
+      targets: '#shapes .circle',
+      translateY: 300,
+      translateX: 20
+    });
+  }
+
+  exitHeader () {
+    this.timeline.play();
+    setTimeout(this.timeline.pause, 800);
+    console.log('exiting header');
+  }
+
+  enterInput () {
+    console.log('entering input');
+    this.timeline.play();
+  }
+
+  exitInput () {
+    console.log('exiting input');
+  }
+}
+
+const shapes = new Shapes();
 setRandomTheme();
+shapes.exitHeader();
 
 function setRandomTheme() {
   const colors = [
@@ -23,14 +57,16 @@ const pages = document.querySelector('#pages');
 const searchForm = document.querySelector('#search');
 searchForm.addEventListener('submit', function (e) {
   e.preventDefault();
+  shapes.enterInput();
   const username = this.user.value;
   fetch(`/pages/${username}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(projects) {
+      shapes.exitInput();
       pages.innerText = '';
-
+      
       if (projects.length) {
         projects.forEach(function(project) {new Project(project);});
       } else {
@@ -39,10 +75,9 @@ searchForm.addEventListener('submit', function (e) {
           url: '',
           description: `${username} hasn't published any repos to gh-pages!`
         };
-
+        
         new Project(emptyProject);
-      }
-      
+      }      
     });
 });
 
