@@ -71,14 +71,14 @@ main {
 }
 
 
-/* canvas */
+/* animated shapes container */
 
-canvas {
+#shapes {
   border: 1px solid gray;
-}
-
-#second {
-  margin-top: -80px;
+  height: 400px;
+  width: 300px;
+  position: absolute;
+  z-index: -1;
 }
 
 
@@ -87,7 +87,7 @@ canvas {
 form {
   width: 100%;
   max-width: 340px;
-  margin-top: -50px;
+  margin: 100px auto;
   text-align: center;
 }
 

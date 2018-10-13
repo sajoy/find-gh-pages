@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js" defer></script>
     <script src="/client.js" defer></script>
+    <script src="/shapes.js" defer></script>
   </head>
   <body>
     <header>
@@ -23,13 +24,12 @@
     </header>
 
     <main>
-      <canvas id="first" height="200"></canvas>
+      <div id="shapes"></div>
       <form id="search">
         <label for="user">enter your github username:</label>
         <input id="user" name="user" type="text" maxlength="100" placeholder="octocat" aria-labelledby="submit-user" required autocomplete="off">
         <button type="submit"><h1 class="spiky-header" data-content="go!">go!</h1></button>
       </form>
-      <canvas id="second" height="200"></canvas>
       <section>
         <ul id="pages"></ul>
       </section>
