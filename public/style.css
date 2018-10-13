@@ -39,8 +39,6 @@ h1 {
   font-style: italic;
 }
 
-/* TODO make this a class, also figure out a way to programatically update content */
-
 .spiky-header {
   position: relative;
   z-index: 1;
@@ -64,10 +62,32 @@ ul .spiky-header:after {
   font-weight: bold;
 }
 
+/* main */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* canvas */
+
+canvas {
+  border: 1px solid gray;
+}
+
+#second {
+  margin-top: -80px;
+}
+
+
+/* form */
+
 form {
   width: 100%;
   max-width: 340px;
-  margin: 120px auto;
+  margin-top: -50px;
   text-align: center;
 }
 
