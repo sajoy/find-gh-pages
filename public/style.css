@@ -75,7 +75,7 @@ main {
 /* animated shapes */
 
 #shapes {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   margin-top: -50px;
   height: 450px;
   width: 300px;
@@ -90,7 +90,7 @@ main {
 
 .shape {
   display: inline-block;
-  /* position: absolute; */
+  position: absolute;
   height: var(--small-height);
   width: var(--small-height);
   background-color: var(--theme-color);
@@ -116,13 +116,12 @@ main {
 }
 
 
-
 /* form */
 
 form {
   width: 100%;
   max-width: 340px;
-  margin: 120px auto;
+  margin: 150px auto;
   text-align: center;
 }
 

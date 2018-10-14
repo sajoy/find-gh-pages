@@ -5,34 +5,136 @@ Array.prototype.getRandomItem = function () {
 
 class Shapes {
   constructor () {
+
+    // when user focuses on input, reverse the timeline and pause again?
+    
     // build a timeline of entire thing and pause and play as it progresses
-    this.timeline = anime.timeline({autoplay: false});
+    let tl = this.timeline = anime.timeline({
+      autoplay: false,
+      duration: 600,
+    });
+    
+    // exit header
     this.timeline.add({
-      targets: '#shapes .circle',
-      translateY: 100,
-      translateX: 80
+      targets: '#shapes .one',
+      delay: 1000,
+      translateY: 90,
+      translateX: [100, 100],
+      offset: '-=400'
     })
     .add({
-      targets: '#shapes .circle',
-      translateY: 300,
-      translateX: 20
+      targets: '#shapes .two',
+      translateY: 130,
+      translateX: [150, 150],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .three',
+      translateY: 170,
+      translateX: [120, 120],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .four',
+      translateY: 150,
+      translateX: [180, 180],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .five',
+      translateY: 60,
+      translateX: [50, 50],
+      offset: '-=300',
+    })
+    .add({
+      targets: '#shapes .six',
+      translateY: 80,
+      translateX: [200, 200],
+      offset: '-=300'
+    })
+    .add({
+      targets: '#shapes .seven',
+      translateY: 80,
+      translateX: [145, 145],
+      offset: '-=250',
+    })
+    .add({
+      targets: '#shapes .eight',
+      translateY: 220,
+      duration: 1200,
+      translateX: [65, 65],
+      offset: '-=200',
+      complete: function(anim) {
+        tl.pause();
+      }
     });
+
+    // enter input
+    this.timeline
+    .add({
+      targets: '#shapes .one',
+      delay: 1000,
+      translateY: [90, 420],
+      translateX: [100, 100],
+      offset: '-=400'
+    })
+    .add({
+      targets: '#shapes .eight',
+      translateY: [110, 420],
+      translateX: [65, 65],
+      offset: '-=200',
+    })
+    .add({
+      targets: '#shapes .two',
+      translateY: [130, 420],
+      translateX: [150, 150],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .three',
+      translateY: [170, 420],
+      translateX: [120, 120],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .four',
+      translateY: [150, 420],
+      translateX: [180, 180],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .five',
+      translateY: [60, 420],
+      translateX: [50, 50],
+      offset: '-=300',
+    })
+    .add({
+      targets: '#shapes .six',
+      translateY: [80, 420],
+      translateX: [200, 200],
+      offset: '-=300'
+    })
+    .add({
+      targets: '#shapes .seven',
+      translateY: [80, 420],
+      translateX: [145, 145],
+      offset: '-=250',
+      complete: function(anim) {
+        tl.pause();
+      }
+    });
+
+
   }
 
   exitHeader () {
     this.timeline.play();
-    setTimeout(this.timeline.pause, 800);
-    console.log('exiting header');
   }
 
   enterInput () {
-    console.log('entering input');
     this.timeline.play();
   }
 
-  exitInput () {
-    console.log('exiting input');
-  }
 }
 
 const shapes = new Shapes();
@@ -58,13 +160,13 @@ const searchForm = document.querySelector('#search');
 searchForm.addEventListener('submit', function (e) {
   e.preventDefault();
   shapes.enterInput();
+
   const username = this.user.value;
   fetch(`/pages/${username}`)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(projects) {
-      shapes.exitInput();
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(projects) {
       pages.innerText = '';
       
       if (projects.length) {
