@@ -74,32 +74,32 @@ class Shapes {
     .add({
       targets: '#shapes .one',
       delay: 1000,
-      translateY: [90, 420],
-      translateX: [100, 100],
+      translateY: [90, 460],
+      translateX: [100, 120],
       offset: '-=400'
     })
     .add({
       targets: '#shapes .eight',
-      translateY: [110, 420],
+      translateY: [110, 320],
       translateX: [65, 65],
       offset: '-=200',
     })
     .add({
       targets: '#shapes .two',
-      translateY: [130, 420],
-      translateX: [150, 150],
+      translateY: [130, 500],
+      translateX: [150, 220],
       offset: '-=400',
     })
     .add({
       targets: '#shapes .three',
-      translateY: [170, 420],
-      translateX: [120, 120],
+      translateY: [170, 380],
+      translateX: [120, 80],
       offset: '-=400',
     })
     .add({
       targets: '#shapes .four',
-      translateY: [150, 420],
-      translateX: [180, 180],
+      translateY: [150, 340],
+      translateX: [180, 200],
       offset: '-=400',
     })
     .add({
@@ -110,13 +110,13 @@ class Shapes {
     })
     .add({
       targets: '#shapes .six',
-      translateY: [80, 420],
+      translateY: [80, 400],
       translateX: [200, 200],
       offset: '-=300'
     })
     .add({
       targets: '#shapes .seven',
-      translateY: [80, 420],
+      translateY: [80, 410],
       translateX: [145, 145],
       offset: '-=250',
       complete: function(anim) {
