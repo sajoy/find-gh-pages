@@ -196,7 +196,7 @@ class Shapes {
   }
 
   exitInput () {
-    this.fallFromInput.play();
+    this.fallFromInput.restart();
   }
 
 }
