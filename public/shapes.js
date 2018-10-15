@@ -1,6 +1,7 @@
 class Shapes {
   constructor () {
     this.setupFallIntoInput();
+    this.setupFallFromInputEmpty();
     this.setupFallFromInput();
     this.setupFallFromHeader(); 
   }
@@ -17,7 +18,71 @@ class Shapes {
     this.fallFromInput.restart();
   }
 
-  // TODO create exitInputAndFrown ()
+  exitInputAndFrown () {
+    this.fallFromInputEmpty.restart();
+  }
+
+  setupFallFromInputEmpty () {
+    // fall from input to below into a sad face
+    let tl = this.fallFromInputEmpty = anime.timeline({
+      autoplay: false,
+      duration: 600,
+    });
+
+    this.fallFromInputEmpty.add({
+      targets: '#shapes .one',
+      delay: 1000,
+      translateY: [250, 360],
+      translateX: [100, 20],
+      offset: '-=400'
+    })
+    .add({
+      targets: '#shapes .eight',
+      translateY: [250, 430],
+      translateX: [65, 65],
+      offset: '-=200',
+    })
+    .add({
+      targets: '#shapes .two',
+      translateY: [250, 480],
+      translateX: [150, 210],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .three',
+      translateY: [250, 410],
+      translateX: [120, 100],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .four',
+      translateY: [250, 410],
+      translateX: [180, 150],
+      offset: '-=400',
+    })
+    .add({
+      targets: '#shapes .five',
+      translateY: [250, 460],
+      translateX: [50, 50],
+      offset: '-=300',
+    })
+    .add({
+      targets: '#shapes .six',
+      translateY: [250, 350],
+      translateX: [200, 230],
+      offset: '-=300'
+    })
+    .add({
+      targets: '#shapes .seven',
+      translateY: [250, 440],
+      translateX: [145, 180],
+      offset: '-=250',
+      complete: function(anim) {
+        tl.pause();
+      }
+    });
+
+  }
 
   setupFallIntoInput () {
     // fall from above into input

@@ -46,17 +46,18 @@ class App {
   
     searchForm.addEventListener('submit', e => {
       e.preventDefault();
-      this.shapes.exitInput();
       
       const username = e.target.user.value;
       fetch(`/pages/${username}`)
-        .then(response => response.json())
-        .then(projects => {
-            pages.innerText = '';
-            
-            if (projects.length) {
+      .then(response => response.json())
+      .then(projects => {
+        pages.innerText = '';
+        
+        if (projects.length) {
+              this.shapes.exitInput();
               projects.forEach(project => new Project(project));
             } else {
+              this.shapes.exitInputAndFrown();
               const emptyProject = {
                 name: 'null',
                 url: '',

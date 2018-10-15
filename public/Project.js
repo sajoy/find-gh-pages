@@ -16,6 +16,9 @@ class Project {
     this.createLink();
     
     pages.appendChild(this.ele);
+    setTimeout(()=> {
+          this.ele.style.opacity = 1;
+    });
   }
   
   createTitle () {

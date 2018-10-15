@@ -75,7 +75,6 @@ main {
 /* animated shapes */
 
 #shapes {
-  /* border: 1px solid gray; */
   margin-top: -50px;
   height: 450px;
   width: 300px;
@@ -225,6 +224,9 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 li p {
