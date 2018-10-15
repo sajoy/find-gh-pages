@@ -14,7 +14,7 @@
     "superagent": "^3.8.3"
   },
   "engines": {
-    "node": "8.x"
+    "node": ">=8.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"

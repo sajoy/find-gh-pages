@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var superagent = require('superagent');
 
-// we've started you off with Express, 
+// we've started you off with Express,
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
@@ -25,14 +25,17 @@ app.get('/pages/:user', function(request, response) {
         const repos = res.body;
         const pages = repos.filter(repo => repo.has_pages)
                 .map(repo => {
-                    return { 
+                    return {
                       name: repo.name,
                       url: `http://${repo.owner.login}.github.io/${repo.name}`,
                       description: repo.description
                     };
                 });
-        
-    response.send(pages);
+
+        response.status(200).send(pages);
+    })
+    .catch(() => {
+        response.status(404).send({status:404, message: 'User doesn\'t exist'});
     });
 });
 

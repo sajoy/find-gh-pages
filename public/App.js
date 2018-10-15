@@ -21,7 +21,7 @@ class App {
       '#A2D729', // green
       '#E365C1', // pink
     ];
-  
+
     const root = document.querySelector('body');
     root.style.setProperty('--theme-color', colors.getRandomItem());
   }
@@ -43,29 +43,38 @@ class App {
   listenForSubmit () {
     const pages = document.querySelector('#pages');
     const searchForm = document.querySelector('#search');
-  
+
     searchForm.addEventListener('submit', e => {
       e.preventDefault();
-      
+
       const username = e.target.user.value;
       fetch(`/pages/${username}`)
       .then(response => response.json())
       .then(projects => {
         pages.innerText = '';
-        
+
         if (projects.length) {
               this.shapes.exitInput();
               projects.forEach(project => new Project(project));
+            } else if(projects.message === 'User doesn\'t exist') {
+              this.shapes.exitInputAndFrown();
+              const emptyProject = {
+                name: 'User doesn\'t exist',
+                url: '',
+                description: `${username} is not on github, enter a valid github username please.`
+              };
+
+              new Project(emptyProject);
             } else {
               this.shapes.exitInputAndFrown();
               const emptyProject = {
-                name: 'null',
+                name: 'Nothing published',
                 url: '',
                 description: `${username} hasn't published any repos to gh-pages!`
               };
-              
+
               new Project(emptyProject);
-            }      
+            }
         });
     });
   }
