@@ -39,8 +39,6 @@ h1 {
   font-style: italic;
 }
 
-/* TODO make this a class, also figure out a way to programatically update content */
-
 .spiky-header {
   position: relative;
   z-index: 1;
@@ -64,11 +62,92 @@ ul .spiky-header:after {
   font-weight: bold;
 }
 
+/* main */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+
+/* animated shapes */
+
+#shapes {
+  margin-top: -50px;
+  height: 450px;
+  width: 300px;
+  position: absolute;
+
+  --small-height: 20px;
+  --large-height: 36px;
+  --triangle-side-height: 12px;
+  --triangle-bottom-height: 20px;
+}
+
+.shape {
+  display: inline-block;
+  position: absolute;
+  height: var(--small-height);
+  width: var(--small-height);
+  background-color: var(--theme-color);
+
+  transition: transform .5s;
+}
+
+.shape:hover {
+  transform: scale(1.2);
+}
+
+.shape.large {
+  height: var(--large-height);
+  width: var(--large-height);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.triangle {
+  background-color: transparent;
+}
+
+.triangle {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+
+  border-left: transparent var(--triangle-side-height) solid;
+  border-right: transparent var(--triangle-side-height) solid;
+  border-bottom: var(--theme-color) var(--triangle-bottom-height) solid;
+
+  animation: spin 3s infinite linear;
+}
+
+.triangle:nth-child(2) { animation-delay: .5s; }
+.triangle:nth-child(3) { animation-delay: .2s; animation-duration: 5s; }
+.triangle:nth-child(4) { animation-delay: .7s; animation-duration: 2s; }
+ 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+
+/* form */
+
 form {
   width: 100%;
   max-width: 340px;
-  margin: 120px auto;
+  margin: 150px auto;
   text-align: center;
+  z-index: 1;
 }
 
 label {
@@ -107,6 +186,8 @@ button {
   position: relative;
   color: white;
   outline: none;
+
+  transition: transform .5s;
 }
 
 button h1 {
@@ -114,7 +195,7 @@ button h1 {
 }
 
 button:hover {
-  color: black;
+  transform: scale(1.1);
 }
 
 button:active {
@@ -143,6 +224,9 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 li p {
